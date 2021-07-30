@@ -306,8 +306,9 @@ nav {
 }
 
 .about .container {
-  display: flex;
-  align-items: center;
+  display: grid;
+  align-content: center;
+  position: relative;
   min-height: 80vh;
 }
 
@@ -335,6 +336,13 @@ nav {
   font-size: 1.4rem;
   padding: 0;
   margin-bottom: 1.45rem;
+}
+
+.update-date p {
+  font-size: 1.2rem;
+  align-self: flex-start;
+  color: teal;
+  flex-grow: 1;
 }
 
 hr {

@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "portfolio-site-v2",
+    "develop": "portfolio-site-v2"
+  }
+}
