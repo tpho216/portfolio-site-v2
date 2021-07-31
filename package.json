@@ -4,8 +4,9 @@
   "description": "portfolio site",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node helloworld.js"
+    "start": "webpack serve",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,23 @@
   },
   "homepage": "https://github.com/tpho216/portfolio-site-v2#readme",
   "dependencies": {
+    "@types/node": "^16.4.8",
+    "@types/react": "^17.0.15",
+    "@types/react-dom": "^17.0.9",
     "dotenv": "^10.0.0",
     "firebase": "^8.7.0",
-    "typescript": "^4.3.5"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "css-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.1.0",
+    "source-map-loader": "^3.0.0",
+    "ts-loader": "^9.2.4",
+    "typescript": "^4.3.5",
+    "webpack": "^5.47.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   }
 }
