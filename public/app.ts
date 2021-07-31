@@ -1,5 +1,14 @@
-//firebase key hidden
-//@ts-ignore
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const config = {
+    apiKey: process.env.Firebase_API_KEY,
+    authDomain: process.env.Firebase_AUTH_DOMAIN,
+    databaseURL: process.env.Firebase_DATABASE_URL,
+    projectId: process.env.Firebase_PROJECT_ID,
+    storageBucket: process.env.Firebase_STORAGE_BUCKET,
+    messagingSenderId: process.env.Firebase_MESSAGING_SENDER_ID,
+    appId: process.env.Firebase_APP_ID,
+    measurementId: process.env.Firebase_MEASUREMENT_ID
+};//@ts-ignore
 firebase.initializeApp(config);
 
 let about_greeting = document.getElementsByClassName("about-text-box");

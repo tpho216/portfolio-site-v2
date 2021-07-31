@@ -76,6 +76,6 @@
   },
 
   "include": [
-    "src/components/index.tsx"
+    "src"
   ]
 }
