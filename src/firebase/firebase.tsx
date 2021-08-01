@@ -1,8 +1,7 @@
 /*Initialize Firebase Instance*/
 import firebase from 'firebase/app';
 import 'firebase/database';
-import '../Util/DebugHelper';
-import {DebugHelper} from "../Util/DebugHelper";
+import {DebugHelper} from "../../Util/DebugHelper";
 
 const firebaseConfig = {
     apiKey: process.env.Firebase_API_KEY,
