@@ -1,6 +1,8 @@
 /*Initialize Firebase Instance*/
 import firebase from 'firebase/app';
 import 'firebase/database';
+import '../Util/DebugHelper';
+import {DebugHelper} from "../Util/DebugHelper";
 
 const firebaseConfig = {
     apiKey: process.env.Firebase_API_KEY,
@@ -13,18 +15,16 @@ const firebaseConfig = {
     measurementId: process.env.Firebase_MEASUREMENT_ID,
 };
 
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
-
-export const initialize = () => {
-    console.log("Running firebase.tsx ...");
-    console.log("env", process.env.Firebase_API_KEY);
+if (!firebase.apps.length) { // check if there is any app in projects (web apps)
+    const result = firebase.initializeApp(firebaseConfig);
+    if (result == null) {
+        DebugHelper("Firebase fail to initialize");
+    } else {
+        DebugHelper("Firebase App Instance Successfully initialized");
+    }
 }
 
 const db = firebase.database();
-//const db = "something"
-console.log("db", db.ref().child("about"));
 
 export {
     db
