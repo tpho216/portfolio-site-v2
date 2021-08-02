@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require('dotenv-webpack');
 const webpack = require("webpack");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: "./src/index.tsx",
@@ -38,9 +39,15 @@ module.exports = {
             template: path.resolve("src","index.html"),
         }),
         new MiniCssExtractPlugin({
-            filename:"./src/index.css",
+            filename:"./index.css",
         }),
         new Dotenv({
         }),
+        new CopyPlugin({
+            patterns: [
+                {from: "src/firebase-messaging-sw.js", to: "firebase-messaging-sw.js"},
+
+            ]
+        })
     ]
 }
