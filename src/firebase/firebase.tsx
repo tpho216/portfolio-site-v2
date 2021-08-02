@@ -1,6 +1,7 @@
 /*Initialize Firebase Instance*/
 import firebase from 'firebase/app';
 import 'firebase/database';
+import 'firebase/messaging';
 import {DebugHelper} from "../../Util/DebugHelper";
 
 const firebaseConfig = {
@@ -22,9 +23,15 @@ if (!firebase.apps.length) { // check if there is any app in projects (web apps)
         DebugHelper("Firebase App Instance Successfully initialized");
     }
 }
-
 const db = firebase.database();
+DebugHelper("Initialized Realtime Database.")
+
+const messaging = firebase.messaging();
+DebugHelper("Initialized Cloud Messaging.")
+
+
 
 export {
-    db
+    db,
+    messaging
 };
