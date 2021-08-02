@@ -7,14 +7,14 @@ const webpack = require("webpack");
 module.exports = {
     entry: "./src/index.tsx",
     target: "web",
-    mode: "development",
+    mode: "development",//switching between develop & production to hide webpack from source map in devTool
 
     resolve: {
         extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
     },
     output: {
         path: path.resolve("build"),
-        filename: "bundle.js"
+        filename: "bundle.js",
     },
     module: {
         rules: [
