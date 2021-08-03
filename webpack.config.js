@@ -46,8 +46,10 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 {from: "src/firebase-messaging-sw.js", to: "firebase-messaging-sw.js"},
-
             ]
         })
-    ]
+    ],
+    devServer: {
+        historyApiFallback: true,
+    }
 }

@@ -1,12 +1,20 @@
 import React from "react";
+import {About} from "./components/about/About"
+import {routes} from "./components/routes/routes";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 
-export interface HelloWorldProps {
-    userName:string;
-    lang:string;
+const App = () => {
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route
+                    exact
+                    path='/about'
+                    component={About} //TODO Replace with routes array
+                >
+                </Route>
+            </Switch>
+        </BrowserRouter>
+    );
 }
-
-export const App = (props:HelloWorldProps) => (
-    <h1>
-        HI {props.userName} from React! Welcome to {props.lang}!
-    </h1>
-);
+export default App;
