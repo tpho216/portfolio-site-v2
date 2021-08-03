@@ -20,15 +20,18 @@
   },
   "homepage": "https://github.com/tpho216/portfolio-site-v2#readme",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.1",
     "@types/node": "^16.4.8",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
+    "@types/react-redux": "^7.1.18",
     "@types/react-router-dom": "^5.1.8",
     "copy-webpack-plugin": "^9.0.1",
     "dotenv": "^10.0.0",
     "firebase": "^8.7.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
