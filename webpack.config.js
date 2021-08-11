@@ -24,9 +24,10 @@ module.exports = {
                 test: /\.(ts|tsx)$/,
                 loader: "ts-loader" },
             {
-                enforce: "pre",
                 test: /\.js$/,
-                loader: "source-map-loader",
+                enforce: "pre",
+                use: ["source-map-loader"],
+                exclude: /node_modules\/@reduxjs/,
             },
             {
                 test: /\.css$/,
@@ -49,6 +50,7 @@ module.exports = {
             ]
         })
     ],
+    devtool: "source-map",
     devServer: {
         historyApiFallback: true,
     }
