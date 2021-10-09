@@ -6,12 +6,15 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "./state/reducers/rootReducer";
 import {createComment} from "./state/actions/commentActions";
+import {initAbout} from "./state/actions/aboutAction";
 
 const App = () => {
 
     const comment = useSelector((state : RootState) => {return state.comment});
-
     const dispatch = useDispatch();
+
+
+
     return (
         <div>
             <BrowserRouter>
@@ -25,12 +28,11 @@ const App = () => {
                 </Switch>
             </BrowserRouter>
             <NavSideBar>
-
             </NavSideBar>
 
-            <button onClick={() => {
-                dispatch(createComment("Hello"));
-            }}>Comment</button>
+            {/*<button onClick={() => {*/}
+            {/*    dispatch(createComment("Hello"));*/}
+            {/*}}>Comment</button>*/}
 
         </div>
 
