@@ -7,6 +7,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "./state/reducers/rootReducer";
 import {createComment} from "./state/actions/commentActions";
 import {initAbout} from "./state/actions/aboutAction";
+import {ProjectsPage} from "./components/projects/ProjectsPage";
+import PortfolioDataContext, {PortfolioDataProvider} from "./components/Providers/PortfolioDataProvider";
 
 const App = () => {
 
@@ -17,13 +19,15 @@ const App = () => {
 
     return (
         <div>
+            <PortfolioDataProvider>
+                <ProjectsPage/>
+            </PortfolioDataProvider>
             <BrowserRouter>
                 <Switch>
                     <Route
                         exact
                         path='/about'
-                        component={About} //TODO Replace with routes array
-                    >
+                        component={About}> //TODO Replace with routes array
                     </Route>
                 </Switch>
             </BrowserRouter>
