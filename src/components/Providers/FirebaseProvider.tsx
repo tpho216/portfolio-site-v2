@@ -1,8 +1,8 @@
+// @ts-ignore
 import React from "react";
 import {useDispatch} from "react-redux";
 
 interface IFirebaseContext {
-
 }
 
 const FirebaseContext = React.createContext<IFirebaseContext>({
