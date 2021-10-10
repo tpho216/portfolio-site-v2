@@ -3,17 +3,19 @@ import React, {useContext, useEffect, useMemo, useState} from "react";
 import APIClient from "../../api/APIClient";
 import {IPortfolio} from "../../api/interfaces/IPortfolio";
 import {DebugHelper} from "../../../Util/DebugHelper";
+import {IProject} from "../../api/interfaces/IProject";
+import _ from "lodash";
 interface IPortfolioDataContext {
     fetching: boolean;
     error: any;
-    portfolioData: IPortfolio | null;
+    portfolio: IPortfolio | null;
     apiClient: APIClient;
 }
 
 const PortfolioDataContext = React.createContext<IPortfolioDataContext>({
     fetching: false,
     error: null,
-    portfolioData : null,
+    portfolio : null,
     apiClient: new APIClient(),
 })
 
@@ -25,7 +27,7 @@ export const PortfolioDataProvider: React.FC<IPortfolioDataProviderProps> = (pro
     const { children } = props;
     const apiClient : APIClient = new APIClient();
 
-    const [portfolioData, setPortfolioData] = useState<IPortfolioDataContext | null>(null);
+    const [portfolio, setPortfolio] = useState<IPortfolioDataContext['portfolio'] | null>(null);
     const [fetching, setFetching] = useState(false);
     const [error, setError] = useState<any>(null);
 
@@ -34,12 +36,10 @@ export const PortfolioDataProvider: React.FC<IPortfolioDataProviderProps> = (pro
             try {
                 setFetching(true);
                 setError(null);
-                const projectsDataResponse = await apiClient.portfolioDataService.getProjects();
-                //const portfolioData =
-                const projectsData = projectsDataResponse.data;
-                console.log(projectsData);
-                //setPortfolioData(projectsData);
-
+                const projectsResponse = await apiClient.portfolioDataService.getProjects();
+                setPortfolio({
+                    projects: projectsResponse.data
+                })
             }
             catch (e) {
                 setError(e);
@@ -49,7 +49,7 @@ export const PortfolioDataProvider: React.FC<IPortfolioDataProviderProps> = (pro
     }, []);
 
     const context = {
-        portfolioData,
+        portfolio,
         fetching,
         error,
         apiClient
