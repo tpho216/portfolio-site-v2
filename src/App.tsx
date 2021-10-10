@@ -15,8 +15,6 @@ const App = () => {
     const comment = useSelector((state : RootState) => {return state.comment});
     const dispatch = useDispatch();
 
-
-
     return (
         <div>
             <PortfolioDataProvider>

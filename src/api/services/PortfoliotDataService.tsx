@@ -1,5 +1,6 @@
 import { AxiosInstance } from 'axios';
 import {IProject} from "../interfaces/IProject";
+import {IArrayResponse} from "../interfaces/IArrayResponse";
 
 class PortfolioDataService {
     private readonly axios: AxiosInstance;
@@ -9,7 +10,7 @@ class PortfolioDataService {
     }
 
     public async getProjects() {
-        return this.axios.get<IProject>('/project');
+        return this.axios.get<IProject[]>('/project');
     }
 }
 
