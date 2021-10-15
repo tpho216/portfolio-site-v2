@@ -7,7 +7,7 @@ class APIClient {
     private readonly PRODUCTION_BASE_URL = "https://tphoportfolioapi.azurewebsites.net"
     constructor() {
         const axiosInstance = axios.create({
-            baseURL: this.DEVELOPMENT_BASE_URL
+            baseURL: this.PRODUCTION_BASE_URL
         });
 
         this.portfolioDataService = new PortfolioDataService(axiosInstance);

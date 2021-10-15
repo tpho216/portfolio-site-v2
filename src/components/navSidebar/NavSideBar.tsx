@@ -57,7 +57,7 @@ export const NavSideBar : React.FC<NavSideBarProps> =  () => {
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a href="/about" className="nav-link">About</a>
+                        <a href="#about" className="nav-link">About</a>
                     </li>
                     <li className="nav-item">
                         <a href="#services" className="nav-link">Services</a>

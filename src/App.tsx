@@ -17,18 +17,19 @@ const App = () => {
 
     return (
         <div>
+            <About></About>
             <PortfolioDataProvider>
                 <ProjectsPage/>
             </PortfolioDataProvider>
-            <BrowserRouter>
-                <Switch>
-                    <Route
-                        exact
-                        path='/about'
-                        component={About}> //TODO Replace with routes array
-                    </Route>
-                </Switch>
-            </BrowserRouter>
+            {/*<BrowserRouter>*/}
+            {/*    <Switch>*/}
+            {/*        <Route*/}
+            {/*            exact*/}
+            {/*            path='/about'*/}
+            {/*            component={About}>*/}
+            {/*        </Route>*/}
+            {/*    </Switch>*/}
+            {/*</BrowserRouter>*/}
             <NavSideBar>
             </NavSideBar>
 
