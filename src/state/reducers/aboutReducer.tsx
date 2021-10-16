@@ -20,7 +20,8 @@ const initialState: aboutState = {
  * Handles state for getting about information
  */
 
-export default function aboutReducer (state: aboutState = initialState, {type, payload = {}}: Payload) {
+export default function aboutReducer (state: aboutState = initialState,
+                                      {type, payload = {}}: Payload) {
     switch (type) {
         case "INIT_ABOUT":
             return {
