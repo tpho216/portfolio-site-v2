@@ -5,13 +5,13 @@ import skillsReducer, {skillsState} from "./skillsReducer";
 
 export interface RootState {
     about: aboutState,
-    comment: commentState
-    skills: skillsState
+    comment: commentState,
+    skills : skillsState
 }
 const rootReducer = combineReducers<RootState>({
     about: aboutReducer,
     comment: commentReducer,
-    skills: skillsReducer
+    skills : skillsReducer
 })
 
 export default rootReducer;

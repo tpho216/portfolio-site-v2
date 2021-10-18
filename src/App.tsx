@@ -13,41 +13,40 @@ import {SkillsSection} from "./components/skills/Skills";
 import {Dispatch} from "@reduxjs/toolkit";
 import axios from "axios";
 import {IProject} from "./api/interfaces/IProject";
-import skillsReducer, {initialSkillState} from "./state/reducers/skillsReducer";
+import APIClient from "./api/APIClient";
+import {DebugHelper} from "../Util/DebugHelper";
+import PortfolioDataService from "./api/services/PortfolioDataService";
 
 
 
 const App = () => {
     const comment = useSelector((state : RootState) => {return state.comment});
-    const [state, dispatch]= useReducer(skillsReducer, initialSkillState);
 
-
-    useEffect(() => {
-        fetchMockData().then(data => {
-            dispatch({
-                type: "FETCH_SKILLS_DATA", payload: {data:data}})
-        })
-    },[])
-
-
-    const fetchMockData = () => {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve(42);
-            }, 2000);
-            return "hello"
-        });
-    }
+    // const fetchMockData = () => {
+    //     return new Promise(resolve => {
+    //         setTimeout(() => {
+    //             resolve(42);
+    //         }, 4000);
+    //     });
+    // }
+    //
+    // useEffect(() => {
+    //     fetchMockData().then((data) => {
+    //         dispatch({
+    //             type: "FETCH_SKILLS_DATA", payload: data});
+    //     })
+    // });
 
     return (
         <div>
             <About></About>
             <PortfolioDataProvider>
+                <SkillsSection/>
                 <ProjectsPage/>
-            </PortfolioDataProvider>
-            <SkillsSection>
 
-            </SkillsSection>
+
+            </PortfolioDataProvider>
+
             {/*<BrowserRouter>*/}
             {/*    <Switch>*/}
             {/*        <Route*/}

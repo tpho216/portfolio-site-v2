@@ -1,10 +1,11 @@
 // @ts-ignore
-import React, {useContext, useEffect, useMemo, useState} from "react";
+import React, {useContext, useEffect, useMemo, useReducer, useState} from "react";
 import APIClient from "../../api/APIClient";
 import {IPortfolio} from "../../api/interfaces/IPortfolio";
 import {DebugHelper} from "../../../Util/DebugHelper";
 import {IProject} from "../../api/interfaces/IProject";
 import _ from "lodash";
+import {useDispatch} from "react-redux";
 interface IPortfolioDataContext {
     fetching: boolean;
     error: any;
@@ -22,10 +23,10 @@ const PortfolioDataContext = React.createContext<IPortfolioDataContext>({
 interface IPortfolioDataProviderProps {
 }
 
-
 export const PortfolioDataProvider: React.FC<IPortfolioDataProviderProps> = (props) => {
     const { children } = props;
     const apiClient : APIClient = new APIClient();
+    const dispatch = useDispatch();
 
     const [portfolio, setPortfolio] = useState<IPortfolioDataContext['portfolio'] | null>(null);
     const [fetching, setFetching] = useState(false);
@@ -37,8 +38,12 @@ export const PortfolioDataProvider: React.FC<IPortfolioDataProviderProps> = (pro
                 setFetching(true);
                 setError(null);
                 const projectsResponse = await apiClient.portfolioDataService.getProjects();
+                const skillsResponse = await apiClient.portfolioDataService.getSkills();
+                dispatch({type: "FETCH_SKILLS_DATA", payload: skillsResponse.data});
+
                 setPortfolio({
-                    projects: projectsResponse.data
+                    projects: projectsResponse.data,
+                    skills: skillsResponse.data
                 })
             }
             catch (e) {
